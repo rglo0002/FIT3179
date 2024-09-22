@@ -52,7 +52,7 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/aggregated_sat_data.csv"
+              "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/data/aggregated_sat_data.csv"
             },
             "key": "Country",
             "fields": ["Mass"]
@@ -88,7 +88,7 @@
           "lookup": "properties.ADM0_A3",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/aggregated_sat_data.csv"
+              "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/data/aggregated_sat_data.csv"
             },
             "key": "Country",
             "fields": ["Mass"]
