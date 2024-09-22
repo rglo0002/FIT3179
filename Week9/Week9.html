@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en"></html>
 <head>
   <meta charset="UTF-8">
   <title>FIT3179 - Week 9 Homework</title>
@@ -15,7 +15,7 @@
 <body>
   <div id="vis"></div>
   <script type="text/javascript">
-    fetch('Week9Homework.json')
+    fetch('Week9.json')
       .then(response => response.json())
       .then(spec => vegaEmbed('#vis', spec))
       .catch(error => console.error('Error loading the Vega-Lite spec:', error));
