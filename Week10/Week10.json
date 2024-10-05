@@ -1,90 +1,50 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "A basic Sankey diagram showing flow between nodes.",
-    "width": 600,
-    "height": 400,
-    "padding": 5,
-  
-    "data": [
-      {
-        "name": "nodes",
-        "values": [
-          {"name": "A"},
-          {"name": "B"},
-          {"name": "C"},
-          {"name": "D"}
-        ]
-      },
-      {
-        "name": "links",
-        "values": [
-          {"source": 0, "target": 1, "value": 10},
-          {"source": 0, "target": 2, "value": 5},
-          {"source": 1, "target": 3, "value": 15},
-          {"source": 2, "target": 3, "value": 10}
-        ]
-      }
-    ],
-  
-    "scales": [
-      {
-        "name": "color",
-        "type": "ordinal",
-        "domain": {"data": "nodes", "field": "name"},
-        "range": {"scheme": "category20"}
-      }
-    ],
-  
-    "marks": [
-      {
-        "type": "rect",
-        "from": {"data": "nodes"},
-        "encode": {
-          "enter": {
-            "x": {"field": "x0"},
-            "x2": {"field": "x1"},
-            "y": {"field": "y0"},
-            "y2": {"field": "y1"},
-            "fill": {"scale": "color", "field": "name"},
-            "stroke": {"value": "black"}
-          },
-          "update": {
-            "fillOpacity": {"value": 1}
-          },
-          "hover": {
-            "fillOpacity": {"value": 0.5}
-          }
-        },
-        "transform": [
-          {
-            "type": "sankey",
-            "nodeWidth": 15,
-            "nodePadding": 10,
-            "iterations": 6,
-            "links": "links"
-          }
-        ]
-      },
-      {
-        "type": "path",
-        "from": {"data": "links"},
-        "encode": {
-          "enter": {
-            "path": {"field": "path"},
-            "stroke": {"value": "lightgrey"},
-            "strokeWidth": {"field": "value"},
-            "strokeOpacity": {"value": 0.8}
-          }
-        },
-        "transform": [
-          {
-            "type": "sankey",
-            "nodeWidth": 15,
-            "nodePadding": 10,
-            "iterations": 6,
-            "links": "links"
-          }
-        ]
-      }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
+  },
+  "transform": [
+    {
+      "calculate": "year(datum.LaunchDate)",
+      "as": "LaunchYear"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "Mass",
+          "as": "TotalMass"
+        }
+      ],
+      "groupby": ["LaunchYear", "OrbitClass"]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "LaunchYear",
+      "type": "ordinal",
+      "axis": {"title": "Year"}
+    },
+    "y": {
+      "field": "TotalMass",
+      "type": "quantitative",
+      "axis": {"title": "Total Mass"}
+    },
+    "color": {
+      "field": "OrbitClass",
+      "type": "nominal",
+      "legend": {"title": "Orbit Class"}
+    },
+    "tooltip": [
+      {"field": "LaunchYear", "type": "ordinal"},
+      {"field": "TotalMass", "type": "quantitative"},
+      {"field": "OrbitClass", "type": "nominal"}
     ]
+  },
+  "config": {
+    "bar": {
+      "stroke": "white"
+    }
   }
+}
