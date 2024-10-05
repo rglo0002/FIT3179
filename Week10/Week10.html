@@ -1,0 +1,24 @@
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8">
+  <title>FIT3179 - Week 10 Homework</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    #vis {
+      width: 100%;
+      margin: 10 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="vis"></div>
+  <script type="text/javascript">
+    fetch('Week9.json')
+      .then(response => response.json())
+      .then(spec => vegaEmbed('#vis', spec))
+      .catch(error => console.error('Error loading the Vega-Lite spec:', error));
+  </script>
+</body>
+</html>
