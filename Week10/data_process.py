@@ -15,7 +15,7 @@ def standardize_date(date_str):
     return date_str  # Return original if no format matches
 
 # Apply the function to the date column
-# df['LaunchDate'] = df['LaunchDate'].apply(standardize_date)
+df['LaunchDate'] = df['LaunchDate'].apply(standardize_date)
 
 # Replace 'LEo' with 'LEO' in the 'OrbitClass' column
 df['OrbitClass'] = df['OrbitClass'].replace({'LEo': 'LEO'})
