@@ -1,50 +1,147 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
-  },
-  "transform": [
-    {
-      "calculate": "year(datum.LaunchDate)",
-      "as": "LaunchYear"
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Proportion of Total Mass of Satellites Launched by Orbit Class",
+    "data": {
+      "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
     },
-    {
-      "aggregate": [
-        {
-          "op": "sum",
-          "field": "Mass",
-          "as": "TotalMass"
+    "config": {
+    "axis": {"labelFont": "monospace", "titleFont": "monospace"},
+    "legend": {"labelFont": "monospace", "titleFont": "monospace"},
+    "header": {"labelFont": "monospace", "titleFont": "monospace"},
+    "mark": {"font": "monospace"},
+    "title": {"font": "monospace", "subtitleFont": "monospace"}
+    },
+    "layer": [
+      {
+        "params": [
+            {
+            "name": "orbitFilter",
+            "select": {
+                "type": "point",  
+                "fields": ["OrbitClass"]
+            },
+            "bind": "legend" 
+            }
+        ],
+        "transform": [
+          {
+            "calculate": "year(datum.LaunchDate)",
+            "as": "LaunchYear"
+          },
+          {
+            "aggregate": [
+              {
+                "op": "sum",
+                "field": "Mass",
+                "as": "TotalMass"
+              },
+              {
+                "op": "count",
+                "as": "SatelliteCount"
+              }
+            ],
+            "groupby": ["LaunchYear", "OrbitClass"]
+          },
+          {
+            "joinaggregate": [
+              {
+                "op": "sum",
+                "field": "TotalMass",
+                "as": "YearTotalMass"
+              }
+            ],
+            "groupby": ["LaunchYear"]
+          },
+          {
+            "filter": "datum.YearTotalMass > 0"
+          },
+          {
+            "calculate": "datum.TotalMass / datum.YearTotalMass",
+            "as": "Proportion"
+          }
+        ],
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "LaunchYear",
+            "type": "ordinal",
+            "axis": {
+              "title": "Year"
+            }
+          },
+          "y": {
+            "field": "Proportion",
+            "type": "quantitative",
+            "axis": {
+              "title": "Proportion of Total Mass"
+            }
+          },
+          "color": {
+            "field": "OrbitClass",
+            "type": "nominal",
+            "legend": {
+              "title": "Orbit Class"
+            },
+            "condition": {
+                "param": "orbitFilter",  
+                "field": "OrbitClass", 
+                "type": "nominal"
+            }
+          },
+          "opacity": {
+            "value": 0.2,
+            "condition": {
+                "param": "orbitFilter",  
+                "value": 0.8
+            }
+          },
+          "tooltip": [
+            {
+              "field": "LaunchYear",
+              "type": "ordinal",
+              "title": "Year Launched"
+            },
+            {
+              "field": "OrbitClass",
+              "type": "nominal",
+              "title": "Orbit Class"
+            },
+            {
+              "field": "Proportion",
+              "type": "quantitative",
+              "title": "Proportion",
+              "format": ".2%"
+            },
+            {
+              "field": "TotalMass",
+              "type": "quantitative",
+              "title": "Total Mass (kg):"
+            }
+          ]
         }
-      ],
-      "groupby": ["LaunchYear", "OrbitClass"]
-    }
-  ],
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "LaunchYear",
-      "type": "ordinal",
-      "axis": {"title": "Year"}
-    },
-    "y": {
-      "field": "TotalMass",
-      "type": "quantitative",
-      "axis": {"title": "Total Mass"}
-    },
-    "color": {
-      "field": "OrbitClass",
-      "type": "nominal",
-      "legend": {"title": "Orbit Class"}
-    },
-    "tooltip": [
-      {"field": "LaunchYear", "type": "ordinal"},
-      {"field": "TotalMass", "type": "quantitative"},
-      {"field": "OrbitClass", "type": "nominal"}
+      },
+      {
+        "mark": {
+          "type": "text",
+          "baseline": "middle",
+          "dx": 100,
+          "dy": -50,
+          "fontWeight": "normal",
+          "fontSize": 14
+        },
+        "encoding": {
+          "text": {
+            "value": [
+              "Significant increase in mass launched in 2020.",
+              "Primarily due to reusage of Falcon 9 rockets ",
+              "and the launch of the Starlink constellation."
+            ]
+          },
+          "color": {
+            "value": "black"
+          }
+        }
+      }
     ]
-  },
-  "config": {
-    "bar": {
-      "stroke": "white"
-    }
   }
-}
+  

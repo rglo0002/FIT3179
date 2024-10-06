@@ -1,10 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Average Mass of Satellites Launched by Country",
-    "width": "container",
-    "height": "container",
+    "width": 550,    
+    "height": 400,
     "projection": {
       "type": "equalEarth"
+    },
+    "config": {
+    "axis": {"labelFont": "monospace", "titleFont": "monospace"},
+    "legend": {"labelFont": "monospace", "titleFont": "monospace"},
+    "header": {"labelFont": "monospace", "titleFont": "monospace"},
+    "mark": {"font": "monospace"},
+    "title": {"font": "monospace", "subtitleFont": "monospace"}
     },
     "layer": [
       {
@@ -113,7 +120,7 @@
             "type": "quantitative",
             "scale": {"type": "log"},
             "legend": {
-              "title": "Average Mass per Satellite (kg)"
+              "title": "Mass per Satellite (kg)"
             }
           },
           "tooltip": [

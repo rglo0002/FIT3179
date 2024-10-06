@@ -11,16 +11,18 @@ body {
 }
 
 .page {
-    width: 850px;
+    width: 100%; /* Make the container full width */
     background-color: white;
     margin: auto;
     padding: 50px;
     padding-top: 35px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 .vis-container {
     width: 100%;
-    height: 500px;
+    height: 70vh; /* Use 70% of the viewport height */
 }
 
 .description h2,
@@ -44,12 +46,14 @@ h1 {
     font-size: 14px;
 }
 
+#graph {
+    width: 100%;
+    height: 100%; 
+    border: 1px solid #ddd;
+}
+
 #map {
     width: 100%;
-    height: 500px;    
-    border: 1px solid #ddd; /* Optional: Border for debugging */
-}   
-  
-#graph {
-    border: 1px solid #ddd; /* Optional: Border for debugging */
+    height: 100%; 
+    border: 1px solid #ddd;
 }
