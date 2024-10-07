@@ -46,7 +46,7 @@
       }
     },
     "config": {
-      "background": "#022338",
+      "background": "#010c12",
       "title": {
         "color": "white",
         "font": "monospace"

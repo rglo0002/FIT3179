@@ -10,7 +10,7 @@
     "legend": {"labelFont": "monospace", "titleFont": "monospace", "labelColor": "white", "titleColor": "white"},
     "header": {"labelFont": "monospace", "titleFont": "monospace"},
     "title": {"font": "monospace", "subtitleFont": "monospace", "color": "white"},
-    "background": "#022338",
+    "background": "#010c12",
     "text": {"fill": "white"},
     "axis": {
       "labelFont": "monospace", 

@@ -3,7 +3,7 @@
   "title": "Total Satellites by Country",
     "width": "container",    
     "height": "container",
-    "background": "#022338",
+    "background": "#010c12",
     "config": {
       "text": {"fill": "white"},  
       "title": {"color": "white", "font": "monospace"}, 
