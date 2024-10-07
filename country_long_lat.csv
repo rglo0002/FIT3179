@@ -1,4 +1,4 @@
-Country,Alpha-2 code,Alpha-3 code,Numeric code,Latitude,Longitude
+Country,Code1,Code2,Numeric code,Latitude,Longitude
 Afghanistan,AF,AFG,4,33.0,65.0
 Albania,AL,ALB,8,41.0,20.0
 Algeria,DZ,DZA,12,28.0,3.0
@@ -100,7 +100,7 @@ Hungary,HU,HUN,348,47.0,20.0
 Iceland,IS,ISL,352,65.0,-18.0
 India,IN,IND,356,20.0,77.0
 Indonesia,ID,IDN,360,-5.0,120.0
-"Iran, Islamic Republic of",IR,IRN,364,32.0,53.0
+Iran,IR,IRN,364,32.0,53.0
 Iraq,IQ,IRQ,368,33.0,44.0
 Ireland,IE,IRL,372,53.0,-8.0
 Isle of Man,IM,IMN,833,54.23,-4.55
@@ -179,7 +179,7 @@ Puerto Rico,PR,PRI,630,18.25,-66.5
 Qatar,QA,QAT,634,25.5,51.25
 Réunion,RE,REU,638,-21.1,55.6
 Romania,RO,ROU,642,46.0,25.0
-Russian Federation,RU,RUS,643,60.0,100.0
+Russia,RU,RUS,643,60.0,100.0
 Rwanda,RW,RWA,646,-2.0,30.0
 "Saint Helena, Ascension and Tristan da Cunha",SH,SHN,654,-15.9333,-5.7
 Saint Kitts and Nevis,KN,KNA,659,17.3333,-62.75
@@ -211,7 +211,7 @@ Swaziland,SZ,SWZ,748,-26.5,31.5
 Sweden,SE,SWE,752,62.0,15.0
 Switzerland,CH,CHE,756,47.0,8.0
 Syrian Arab Republic,SY,SYR,760,35.0,38.0
-"Taiwan, Province of China",TW,TWN,158,23.5,121.0
+Taiwan,TW,TWN,158,23.5,121.0
 Tajikistan,TJ,TJK,762,39.0,71.0
 "Tanzania, United Republic of",TZ,TZA,834,-6.0,35.0
 Thailand,TH,THA,764,15.0,100.0
@@ -234,8 +234,8 @@ United States Minor Outlying Islands,UM,UMI,581,19.2833,166.6
 Uruguay,UY,URY,858,-33.0,-56.0
 Uzbekistan,UZ,UZB,860,41.0,64.0
 Vanuatu,VU,VUT,548,-16.0,167.0
-"Venezuela, Bolivarian Republic of",VE,VEN,862,8.0,-66.0
-Viet Nam,VN,VNM,704,16.0,106.0
+Venezuela,VE,VEN,862,8.0,-66.0
+Vietnam,VN,VNM,704,16.0,106.0
 "Virgin Islands, British",VG,VGB,92,18.5,-64.5
 "Virgin Islands, U.S.",VI,VIR,850,18.3333,-64.8333
 Wallis and Futuna,WF,WLF,876,-13.3,-176.2

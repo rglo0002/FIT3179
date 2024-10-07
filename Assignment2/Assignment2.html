@@ -26,16 +26,43 @@
 
 <body>
 
-  <div class="'page">
+  <div class="page">
 
-    <h1>Satellites of Earth</h1>
+    <div class="header">
+      <h1>Satellites of Earth</h1>
+    </div>
 
-    <div class="pure-u-1-2">
+    <!-- Second Row with 3 columns, middle one for the graph -->
+    <div class="row row-1">
+      <div class="column column-left">
+        <p class="text-body">
+          The first artificial satellite, Sputnik 1, was launched by the Soviet Union in 1957, marking the beginning of the space age. 
+          Since then, a significant amount of satellites have been sent to space, some of which have since returned to Earth. 
+        </p>
+      </div>
+      <div class="column column-middle">
+        <div id="graph" class="vis-container"></div>
+      </div>
+      <div class="column column-right">
+        <p class="text-body">
+          Today, thousands of satellites orbit our planet, playing crucial roles in communication, weather monitoring, 
+          navigation, and scientific research. The data represented in this visualization focuses on the currently orbiting satellites, 
+          providing insights into their distribution and functionality in our modern world.
+      </div>
+    </div>
+
+    <!-- Second Row for the map -->
+    <div class="row row-2">
       <div id="map" class="vis-container"></div>
     </div>
 
-    <div class="pure-u-1-2">
-      <div id="graph" class="vis-container"></div>
+    <!-- Third and Fourth rows for future content -->
+    <div class="row row-3">
+      <!-- Add future content here -->
+    </div>
+
+    <div class="row row-4">
+      <!-- Add future content here -->
     </div>
  
   </div>

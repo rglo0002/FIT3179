@@ -1,15 +1,25 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Proportion of Total Mass of Satellites Launched by Orbit Class",
+    "title": "Proportion of Satellite Mass by Orbit Class",
+    "width": "container",    
+    "height": "container",
     "data": {
       "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
     },
     "config": {
-    "axis": {"labelFont": "monospace", "titleFont": "monospace"},
-    "legend": {"labelFont": "monospace", "titleFont": "monospace"},
+    "legend": {"labelFont": "monospace", "titleFont": "monospace", "labelColor": "white", "titleColor": "white"},
     "header": {"labelFont": "monospace", "titleFont": "monospace"},
-    "mark": {"font": "monospace"},
-    "title": {"font": "monospace", "subtitleFont": "monospace"}
+    "title": {"font": "monospace", "subtitleFont": "monospace", "color": "white"},
+    "background": "#022338",
+    "text": {"fill": "white"},
+    "axis": {
+      "labelFont": "monospace", 
+      "titleFont": "monospace",
+      "domainColor": "white",  
+      "gridColor": "white",   
+      "labelColor": "white",  
+      "titleColor": "white"   
+    }
     },
     "layer": [
       {
@@ -124,21 +134,22 @@
         "mark": {
           "type": "text",
           "baseline": "middle",
-          "dx": 100,
+          "dx": 0,
           "dy": -50,
           "fontWeight": "normal",
-          "fontSize": 14
+          "fontSize": 14,
+          "align": "center"
         },
         "encoding": {
           "text": {
             "value": [
               "Significant increase in mass launched in 2020.",
-              "Primarily due to reusage of Falcon 9 rockets ",
+              "Primarily due to reusability of Falcon 9 rockets ",
               "and the launch of the Starlink constellation."
             ]
           },
           "color": {
-            "value": "black"
+            "value": "white"
           }
         }
       }
