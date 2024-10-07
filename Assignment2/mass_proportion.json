@@ -90,7 +90,11 @@
             "field": "OrbitClass",
             "type": "nominal",
             "legend": {
-              "title": "Orbit Class"
+              "title": "Orbit Class",
+              "orient": "bottom"
+            },
+            "scale": {
+              "scheme": ["#feebe2", "#fbb4b9", "#f768a1", "#7a0177"]
             },
             "condition": {
                 "param": "orbitFilter",  
@@ -133,12 +137,12 @@
       {
         "mark": {
           "type": "text",
-          "baseline": "middle",
           "dx": 0,
           "dy": -50,
-          "fontWeight": "normal",
-          "fontSize": 14,
-          "align": "center"
+          "font": "monospace",
+          "fontSize": 10,
+          "align": "center",
+          "fontWeight": "lighter"
         },
         "encoding": {
           "text": {

@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total Mass of Satellites Launched by Year",
+    "width": "container",    
+    "height": "container",
+    "data": {
+      "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+        {
+            "calculate": "year(datum.LaunchDate)",
+            "as": "LaunchYear"
+        },
+        {
+        "aggregate": [
+            {
+            "op": "sum",
+            "field": "Mass",
+            "as": "TotalMass"
+            },
+            {
+            "op": "count",
+            "as": "SatelliteCount"
+            }
+        ],
+        "groupby": ["LaunchYear"]
+        }
+    ],
+    "mark": {
+      "type": "line",
+      "color": "purple"
+    },
+    "encoding": {
+      "x": {
+        "field": "LaunchYear",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "TotalMass",
+        "type": "quantitative",
+        "title": "Total Mass (kg)"
+      }
+    },
+    "config": {
+      "background": "#022338",
+      "title": {
+        "color": "white",
+        "font": "monospace"
+      },
+      "axis": {
+        "labelColor": "white",
+        "titleColor": "white",
+        "gridColor": "lightgrey"
+      }
+    }
+  }
+  

@@ -67,8 +67,8 @@
             },
             "legend": {
               "title": "Total Satellites",
-              "values": [10, 50, 100, 1000, 2500],  
-              "labelExpr": "datum.value == 10 ? '0-10' : datum.value == 50 ? '10-50' : datum.value == 100 ? '50-100' : datum.value == 1000 ? '100-1000' : '1000+'",
+              "values": [1, 10, 50, 100, 1000, 2500],  
+              "labelExpr": "datum.value == 1 ? '0-1' :datum.value == 10 ? '1-10' : datum.value == 50 ? '10-50' : datum.value == 100 ? '50-100' : datum.value == 1000 ? '100-1000' : datum.value == 1000 ? '1000-2500' :'2500+'",
               "orient": "bottom-left",
               "offset": 70
             }
@@ -79,7 +79,7 @@
             "title": "Total Satellites",
             "scale": 
               {
-                "scheme": "reds",
+                "scheme": ["#feebe2", "#fbb4b9", "#f768a1", "#c51b8a", "#7a0177"],
                 "domain": [1, 10, 50, 100, 1000, 2500]
               }
           },

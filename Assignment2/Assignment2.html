@@ -32,7 +32,7 @@
       <h1>Satellites of Earth</h1>
     </div>
 
-    <!-- Second Row with 3 columns, middle one for the graph -->
+    <!-- First Row with 3 columns, middle one for the graphs -->
     <div class="row row-1">
       <div class="column column-left">
         <p class="text-body">
@@ -40,9 +40,19 @@
           Since then, a significant amount of satellites have been sent to space, some of which have since returned to Earth. 
         </p>
       </div>
+
       <div class="column column-middle">
-        <div id="graph" class="vis-container"></div>
+
+        <div class="graph-stack-1" >
+          <div id="line-graph" class="vis-container"></div>
+        </div>
+
+        <div class="graph-stack-2" >
+          <div id="prop-graph" class="vis-container"></div>
+        </div>
+
       </div>
+
       <div class="column column-right">
         <p class="text-body">
           Today, thousands of satellites orbit our planet, playing crucial roles in communication, weather monitoring, 
@@ -71,12 +81,17 @@
 
     var specVis1 = "./total_sats_map.json";
     var specVis2 = "./mass_proportion.json";
+    var specVis3 = "./line_graph.json";
 
     vegaEmbed('#map', specVis1, { "actions": false });
 
-    vegaEmbed('#graph', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#prop-graph', specVis2, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);;
+    }).catch(console.error);
+
+    vegaEmbed('#line-graph', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
   </script>
 
 </body>
