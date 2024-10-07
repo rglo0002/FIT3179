@@ -17,7 +17,8 @@
         },
         "mark": {
           "type": "geoshape",
-          "fill": "#1699e0"
+          "fill": "#1699e0",
+          "stroke": null
         }
       },
       {
@@ -61,13 +62,15 @@
             "title": "Total Satellites",
             "scale": {
               "type": "log",
-              "domain": [1,10, 100, 1000, 2500],  
+              "domain": [1,10, 50, 100, 1000, 2500],  
               "range": [10, 50, 100, 300, 700]     
             },
             "legend": {
               "title": "Total Satellites",
-              "values": [10, 100, 1000, 2500],  
-              "labelExpr": "datum.value == 10 ? '0-10' : datum.value == 100 ? '10-100' : datum.value == 1000 ? '100-1000' : '2500+'"
+              "values": [10, 50, 100, 1000, 2500],  
+              "labelExpr": "datum.value == 10 ? '0-10' : datum.value == 50 ? '10-50' : datum.value == 100 ? '50-100' : datum.value == 1000 ? '100-1000' : '1000+'",
+              "orient": "bottom-left",
+              "offset": 70
             }
           },
           "color": {
@@ -77,15 +80,15 @@
             "scale": 
               {
                 "scheme": "reds",
-                "domain": [1, 10, 100, 1000, 2500]
+                "domain": [1, 10, 50, 100, 1000, 2500]
               }
           },
           "opacity": {
-            "value": 0.2,
             "condition": {
                 "param": "satsFilter",  
                 "value": 0.9
-            }
+            },
+            "value": 0.2
           },
           "tooltip": 
           [

@@ -44,7 +44,7 @@
     padding: 50px;
     padding-top: 10px;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column; 
   }
   
   #graph, #map {
