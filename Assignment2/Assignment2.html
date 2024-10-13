@@ -37,6 +37,10 @@
       <div id="map" class="vis-container"></div>
     </div>
 
+    <div class="row row-x">
+      <div id="graph-2" class="vis-container"></div>
+    </div>
+
     <!-- First Row with 3 columns, middle one for the graphs -->
     <div class="row row-1">
       <div class="column column-left">
@@ -88,10 +92,15 @@
 
     var specVis1 = "./total_sats_map.json";
     var specVis2 = "./first_graph_concat.json";
+    var specVis3 = "./graph_2.json";
 
     vegaEmbed('#map', specVis1, { "actions": false });
 
     vegaEmbed('#concat-graph', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#graph-2', specVis3, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

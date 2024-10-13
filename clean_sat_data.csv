@@ -1186,7 +1186,7 @@ NEMO-HD,Slovenia,Civil,Earth Observation,LEO,Sun-Synchronous,0.0,65,2020-09-02,U
 NEO-1,China,Commercial,Technology Development,LEO,Sun-Synchronous,0.0,40,2021-04-27,Origin Space,Taiyuan Launch Center,Long March 6
 NEOSSat,Canada,Government,Space Observation,LEO,Sun-Synchronous,0.0,74,2013-02-25,Microsat Systems Canada Inc.,Satish Dhawan Space Centre,PSLV
 Neptuno,Spain,Government,Earth Observation,LEO,Sun-Synchronous,0.0,4,2021-06-30,Deimos,Cape Canaveral,Falcon 9
-NeR,Sinapore,Commercial,Earth Observation,LEO,,0.0,155,2022-06-30,Satrec Initiative,Satish Dhawan Space Centre,PSLV
+NeR,Singapore,Commercial,Earth Observation,LEO,,0.0,155,2022-06-30,Satrec Initiative,Satish Dhawan Space Centre,PSLV
 Netsat-1,Germany,Commercial,Technology Demonstration,LEO,Sun-Synchronous,0.0,4,2020-09-28,Würzburg Center for Telematics,Plesetsk Cosmodrome,Soyuz-2.1b
 Netsat-2,Germany,Commercial,Technology Demonstration,LEO,Sun-Synchronous,0.0,4,2020-09-28,Würzburg Center for Telematics,Plesetsk Cosmodrome,Soyuz-2.1b
 Netsat-3,Germany,Commercial,Technology Demonstration,LEO,Sun-Synchronous,0.0,4,2020-09-28,Würzburg Center for Telematics,Plesetsk Cosmodrome,Soyuz-2.1b
@@ -5550,7 +5550,7 @@ Starlink-5192 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022
 Starlink-5193 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-20,SpaceX,Cape Canaveral,Falcon 9
 Starlink-5194 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-28,SpaceX,Vandenberg AFB,Falcon 9
 Starlink-5195 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-20,SpaceX,Cape Canaveral,Falcon 9
-Starlink-5196                ,USA,Commercial,Communications,LEO,Polar,0.0,290,2023-01-19,SpaceX,Vandenberg AFB,Falcon 9
+Starlink-5196 ,USA,Commercial,Communications,LEO,Polar,0.0,290,2023-01-19,SpaceX,Vandenberg AFB,Falcon 9
 Starlink-5197 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-20,SpaceX,Cape Canaveral,Falcon 9
 Starlink-5198 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-20,SpaceX,Cape Canaveral,Falcon 9
 Starlink-5199 ,USA,Commercial,Communications,LEO,Non-Polar Inclined,0.0,260,2022-10-28,SpaceX,Vandenberg AFB,Falcon 9

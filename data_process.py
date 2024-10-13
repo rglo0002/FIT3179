@@ -32,6 +32,6 @@ unmatched_data.to_csv('unmatched_countries_organisations.csv', index=False)
 matched_data = sat_data.dropna(subset=['Longitude', 'Latitude'])
 
 # Save the matched data to a new file
-matched_data.to_csv('merged_sat_data.csv', index=False)
+# matched_data.to_csv('merged_sat_data.csv', index=False)
 
 print("Matched data saved as 'merged_sat_data.csv' and unmatched countries/organisations saved as 'unmatched_countries_organisations.csv'.")
