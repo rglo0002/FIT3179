@@ -39,7 +39,7 @@
     "vconcat": [
       {
         "width": 450,
-        "height": 150,
+        "height": 140,
         "layer": [
           {
             "layer": [
@@ -79,7 +79,7 @@
                         "field": "LaunchYear",
                         "type": "ordinal",
                         "axis": {
-                        "title": "",
+                        "title": "Click + Drag to Zoom Lower Chart",
                         "labelAngle": 45
                         }
                     },

@@ -1,5 +1,6 @@
 import pandas as pd
 
+"""
 # Load the datasets
 sat_data = pd.read_csv('aggregated_sat_data.csv')
 country_data = pd.read_csv('country_long_lat.csv')
@@ -35,3 +36,22 @@ matched_data = sat_data.dropna(subset=['Longitude', 'Latitude'])
 # matched_data.to_csv('merged_sat_data.csv', index=False)
 
 print("Matched data saved as 'merged_sat_data.csv' and unmatched countries/organisations saved as 'unmatched_countries_organisations.csv'.")
+"""
+# Load the CSV file
+df = pd.read_csv('clean_sat_data.csv')
+
+# Define a function to group purposes containing 'Earth Observation'
+def group_purpose(purpose):
+    if 'earth observation' in purpose.lower():
+        return 'Earth Observation'
+    else:
+        return purpose
+
+# Apply the grouping function to the Purpose column
+df['Grouped_Purpose'] = df['Purpose'].apply(group_purpose)
+
+# Save the transformed data to a new CSV file
+df.to_csv('clean_sat_data.csv', index=False)
+
+# Optional: Display the first few rows to check the changes
+print(df.head())

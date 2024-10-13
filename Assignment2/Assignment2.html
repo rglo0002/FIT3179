@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -30,15 +29,7 @@
 
     <div class="header">
       <h1>Satellites of Earth</h1>
-    </div>
-
-    <!-- Second Row for the map -->
-    <div class="row row-2">
-      <div id="map" class="vis-container"></div>
-    </div>
-
-    <div class="row row-x">
-      <div id="graph-2" class="vis-container"></div>
+      <h3>Exploring the Operational Satellites in Earth Orbit (as of May 2023)</h3>
     </div>
 
     <!-- First Row with 3 columns, middle one for the graphs -->
@@ -53,14 +44,13 @@
           These satellites play crucial roles in communication, weather monitoring, navigation, and scientific research. The data 
           represented in this visualization focuses on the currently operational satellites, providing insights into their  
           functionality in our modern world.
+        </p>
       </div>
 
       <div class="column column-middle">
-
-        <div class="graph-stack-1" >
+        <div class="graph-stack-1">
           <div id="concat-graph" class="vis-container"></div>
         </div>
-
       </div>
 
       <div class="column column-right">
@@ -68,42 +58,91 @@
           Satellites usually have a lifespan of 5 to 15 years, depending on the type of satellite and its mission. However,
           the oldest satellite still in operation is the amateur AMSAT-Oscar A07, which launched in 1974. It was suspected that it died 
           in 1981 but miraculously came back to life in 2002. It is still operational today [1].
+        </p>
         <p class="text-body">
           A significant shift in satellite mass began in 2020, with SpaceX commencing their 'Starlink' program. This program aims to
           provide global internet coverage through a constellation of satellites in Low Earth Orbit (LEO). 
+        </p>
       </div>
     </div>
 
-    <!-- Third and Fourth rows for future content -->
-    <div class="row row-3">
-      <!-- Add future content here -->
+    <!-- Second Row for the map -->
+    <div class="row row-2">
+      <div id="map" class="vis-container"></div>
     </div>
 
+    <!-- New Third Row with 3 columns -->
+    <div class="row row-3">
+      <div class="column column-left">
+        <p class="text-body">
+          America (USA) is the country with the most satellites in orbit, with 4,848 operational satellites. This is followed by the United Kingdom and then China.
+          The majority of these satellites are in Low Earth Orbit (LEO), and in fact <b>3,995 (82.4%)</b> of them are Starlink satellites.
+        </p>
+        <p class="text-body">
+        SpaceX has been able to rapidly increase the number of satellites launched over the last few years due to their reusable rocket technology.
+        </p>
+      </div>
+
+      <div class="column column-middle">
+        <div id="graph-2" class="vis-container"></div>
+      </div>
+
+      <div class="column column-right">
+        <p class="text-body">
+          Countries have partnered to launch a number of satellites over the years, with the European Space Agency (ESA) being the most prominent.
+          The ESA has 48 active satellites in orbit, with the majority of them being Earth Observation satellites. 
+        </p>
+        <p class="text-body">
+          Earth Observation satellites are used to monitor
+          the Earth's surface, atmosphere, and oceans, providing valuable data for climate change research and disaster management.
+        </p>
+      </div>
+    </div>
+
+    <!-- New 4th Row with 3 columns -->
     <div class="row row-4">
+      <div class="column column-left">
+        <p class="text-body">
+
+        </p>
+        <p class="text-body">
+
+        </p>
+      </div>
+
+      <div class="column column-middle">
+        <div id="treemap" class="vis-container"></div>
+      </div>
+
+      <div class="column column-right">
+        <p class="text-body">
+
+        </p>
+        <p class="text-body">
+   
+        </p>
+      </div>
+    </div>
+
+    <div class="row row-bottom">
       <p class="text-bottom">Visualisation by Ronan Glover (SN: 30580900) for Monash FIT3179 Data Visualisation 2. 
         Data URL: <a href="https://www.ucsusa.org/resources/satellite-database">UCS Satellite Database</a>
         References: [1] <a href="https://en.wikipedia.org/wiki/AMSAT-OSCAR_7">Wikipedia.com</a>
       </p>
     </div>
- 
+
   </div>
 
   <script type="text/javascript">
-
     var specVis1 = "./total_sats_map.json";
     var specVis2 = "./first_graph_concat.json";
     var specVis3 = "./graph_2.json";
+    var specVis4 = "./treemap.json";
 
     vegaEmbed('#map', specVis1, { "actions": false });
-
-    vegaEmbed('#concat-graph', specVis2, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
-    vegaEmbed('#graph-2', specVis3, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
+    vegaEmbed('#concat-graph', specVis2, { "actions": false }).catch(console.error);
+    vegaEmbed('#graph-2', specVis3, { "actions": false }).catch(console.error);
+    vegaEmbed('#treemap', specVis4, { "actions": false }).catch(console.error);
   </script>
 
 </body>

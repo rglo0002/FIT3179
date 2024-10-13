@@ -1,11 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-      "text": "Total Satellites by Country/Organization",
+      "text": "Mulitple Country/Organisation Satellites",
       "font": "monospace",
       "fontSize": 16,
       "color": "white"
     },
+    "width": 430,
     "data": {
       "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/unmatched_countries_organisations.csv"
     },
@@ -26,7 +27,7 @@
     "mark": "bar",
     "encoding": {
       "x": {
-        "field": "Countries_Organisations",
+        "field": "Countries/Organisations",
         "type": "nominal",
         "axis": {
           "labelAngle": -45
@@ -34,20 +35,22 @@
       },
       "y": {
         "field": "Total_Satellites",
-        "type": "quantitative"
+        "type": "quantitative",
+        "title": "Total Satellites"
       },
       "color": {
         "field": "Total_Mass",
+        "title": "Total Mass (kg)",
         "type": "quantitative",
         "scale": {
-          "domain": [0, 10000, 20000, 30000],
-          "range": ["#ffb3b3", "#ff6666", "#ff3333", "#cc0000"]
+          "type": "log",
+            "scheme": "viridis"
         }
       },
       "tooltip": [
-        {"field": "Countries_Organisations", "type": "nominal"},
-        {"field": "Total_Satellites", "type": "quantitative"},
-        {"field": "Total_Mass", "type": "quantitative", "format": ","}
+        {"field": "Countries/Organisations", "type": "nominal"},
+        {"field": "Total_Satellites", "type": "quantitative", "format": ",", "title": "Total Satellites"},
+        {"field": "Total_Mass", "type": "quantitative", "format": ",", "title": "Total Mass (kg)"}
       ]
     }
   }
