@@ -152,6 +152,9 @@
               "and the launch of the Starlink constellation."
             ]
           },
+          "transform": [
+            {"filter": "datum.LaunchYear == 2020"}
+          ],
           "color": {
             "value": "white"
           }

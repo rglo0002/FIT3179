@@ -32,38 +32,42 @@
       <h1>Satellites of Earth</h1>
     </div>
 
+    <!-- Second Row for the map -->
+    <div class="row row-2">
+      <div id="map" class="vis-container"></div>
+    </div>
+
     <!-- First Row with 3 columns, middle one for the graphs -->
     <div class="row row-1">
       <div class="column column-left">
         <p class="text-body">
           The first artificial satellite, Sputnik 1, was launched by the Soviet Union in 1957, marking the beginning of the space age. 
-          Since then, a significant amount of satellites have been sent to space, some of which have since returned to Earth. 
+          Since then, a significant amount of satellites have been sent to space, with 7,560 operational satellites currently in orbit. 
+          Many more than that number have been launched, but are no longer operational.
         </p>
+        <p class="text-body">
+          These satellites play crucial roles in communication, weather monitoring, navigation, and scientific research. The data 
+          represented in this visualization focuses on the currently operational satellites, providing insights into their  
+          functionality in our modern world.
       </div>
 
       <div class="column column-middle">
 
         <div class="graph-stack-1" >
-          <div id="line-graph" class="vis-container"></div>
-        </div>
-
-        <div class="graph-stack-2" >
-          <div id="prop-graph" class="vis-container"></div>
+          <div id="concat-graph" class="vis-container"></div>
         </div>
 
       </div>
 
       <div class="column column-right">
         <p class="text-body">
-          Today, thousands of satellites orbit our planet, playing crucial roles in communication, weather monitoring, 
-          navigation, and scientific research. The data represented in this visualization focuses on the currently orbiting satellites, 
-          providing insights into their distribution and functionality in our modern world.
+          Satellites usually have a lifespan of 5 to 15 years, depending on the type of satellite and its mission. However,
+          the oldest satellite still in operation is the amateur AMSAT-Oscar A07, which launched in 1974. It was suspected that it died 
+          in 1981 but miraculously came back to life in 2002. It is still operational today [1].
+        <p class="text-body">
+          A significant shift in satellite mass began in 2020, with SpaceX commencing their 'Starlink' program. This program aims to
+          provide global internet coverage through a constellation of satellites in Low Earth Orbit (LEO). 
       </div>
-    </div>
-
-    <!-- Second Row for the map -->
-    <div class="row row-2">
-      <div id="map" class="vis-container"></div>
     </div>
 
     <!-- Third and Fourth rows for future content -->
@@ -72,7 +76,10 @@
     </div>
 
     <div class="row row-4">
-      <!-- Add future content here -->
+      <p class="text-bottom">Visualisation by Ronan Glover (SN: 30580900) for Monash FIT3179 Data Visualisation 2. 
+        Data URL: <a href="https://www.ucsusa.org/resources/satellite-database">UCS Satellite Database</a>
+        References: [1] <a href="https://en.wikipedia.org/wiki/AMSAT-OSCAR_7">Wikipedia.com</a>
+      </p>
     </div>
  
   </div>
@@ -80,18 +87,14 @@
   <script type="text/javascript">
 
     var specVis1 = "./total_sats_map.json";
-    var specVis2 = "./mass_proportion.json";
-    var specVis3 = "./line_graph.json";
+    var specVis2 = "./first_graph_concat.json";
 
     vegaEmbed('#map', specVis1, { "actions": false });
 
-    vegaEmbed('#prop-graph', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#concat-graph', specVis2, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#line-graph', specVis3, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
   </script>
 
 </body>

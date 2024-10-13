@@ -1,0 +1,282 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
+    },
+    "config": {
+      "legend": {
+        "labelFont": "monospace",
+        "titleFont": "monospace",
+        "labelColor": "white",
+        "titleColor": "white"
+      },
+      "header": {
+        "labelFont": "monospace",
+        "titleFont": "monospace"
+      },
+      "title": {
+        "font": "monospace",
+        "subtitleFont": "monospace",
+        "color": "white"
+      },
+      "background": "#010c12",
+      "text": {"fill": "white"},
+      "axis": {
+        "labelFont": "monospace",
+        "titleFont": "monospace",
+        "domainColor": "white",
+        "gridColor": "white",
+        "labelColor": "white",
+        "titleColor": "white"
+      }
+    },
+    "title": {
+        "text": "Satellite Launch Data Over Time",
+        "anchor": "middle",
+        "fontSize": 16,
+        "color": "white"
+    },
+    "vconcat": [
+      {
+        "width": 450,
+        "height": 150,
+        "layer": [
+          {
+            "layer": [
+                {
+                    "transform": [
+                    {
+                        "calculate": "year(datum.LaunchDate)",
+                        "as": "LaunchYear"
+                    },
+                    {
+                        "aggregate": [
+                        {
+                            "op": "sum",
+                            "field": "Mass",
+                            "as": "TotalMass"
+                        },
+                        {
+                            "op": "count",
+                            "as": "SatelliteCount"
+                        }
+                        ],
+                        "groupby": ["LaunchYear"]
+                    }
+                    ],
+                    "mark": "line",
+                    "params": [
+                    {
+                        "name": "brush",
+                        "select": {
+                        "type": "interval",
+                        "encodings": ["x"]
+                        }
+                    }
+                    ],
+                    "encoding": {
+                    "x": {
+                        "field": "LaunchYear",
+                        "type": "ordinal",
+                        "axis": {
+                        "title": "",
+                        "labelAngle": 45
+                        }
+                    },
+                    "y": {
+                        "field": "TotalMass",
+                        "type": "quantitative",
+                        "title": "Total Mass (kg)",
+                        "scale": {"type": "log"},
+                        "axis": {
+                        "format": "e",
+                        "grid": false
+                        }
+                    }
+                    }
+                },
+                {
+                    "transform":[
+                        {
+                            "calculate": "year(datum.LaunchDate)",
+                            "as": "LaunchYear"
+                        },
+                        {"filter": "datum.LaunchYear == 1974"}
+                    ],
+                    "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "baseline": "middle",
+                    "font": "monospace",
+                    "dx": 15,
+                    "fontSize": 11.5
+                },
+                "encoding": {
+                    "x": {
+                    "datum": 1974, 
+                    "type": "ordinal"
+                    },
+                    "y": {
+                    "datum": 28,  
+                    "type": "quantitative"
+                    },
+                    "text": {
+                        "value": "Oldest operational satellite: AMSAT-OSCAR 7"
+                    }
+                }
+                }
+            ]
+          },
+          {
+            "transform": [
+              {
+                "calculate": "year(datum.LaunchDate)",
+                "as": "LaunchYear"
+              },
+              {
+                "aggregate": [
+                  {
+                    "op": "sum",
+                    "field": "Mass",
+                    "as": "TotalMass"
+                  },
+                  {
+                    "op": "count",
+                    "as": "SatelliteCount"
+                  }
+                ],
+                "groupby": ["LaunchYear"]
+              }
+            ],
+            "mark": "point",
+            "encoding": {
+              "x": {
+                "field": "LaunchYear",
+                "type": "ordinal"
+              },
+              "y": {
+                "field": "TotalMass",
+                "type": "quantitative"
+              },
+              "tooltip": [
+                {
+                  "field": "LaunchYear",
+                  "type": "ordinal",
+                  "title": "Year Launched"
+                },
+                {
+                  "field": "TotalMass",
+                  "type": "quantitative",
+                  "title": "Total Mass (kg)",
+                  "format": ","
+                },
+                {
+                  "field": "SatelliteCount",
+                  "type": "quantitative",
+                  "title": "Number of Satellites",
+                  "format": ","
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "width": 450,
+        "height": 150,
+        "transform": [
+          {
+            "calculate": "year(datum.LaunchDate)",
+            "as": "LaunchYear"
+          },
+          {
+            "aggregate": [
+              {
+                "op": "sum",
+                "field": "Mass",
+                "as": "TotalMass"
+              },
+              {
+                "op": "count",
+                "as": "SatelliteCount"
+              }
+            ],
+            "groupby": ["LaunchYear", "OrbitClass"]
+          },
+          {
+            "joinaggregate": [
+              {
+                "op": "sum",
+                "field": "TotalMass",
+                "as": "YearTotalMass"
+              }
+            ],
+            "groupby": ["LaunchYear"]
+          },
+          {
+            "filter": "datum.YearTotalMass > 0"
+          },
+          {
+            "calculate": "datum.TotalMass / datum.YearTotalMass",
+            "as": "Proportion"
+          }
+        ],
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "LaunchYear",
+            "type": "ordinal",
+            "scale": {"domain": {"param": "brush"}},
+            "axis": {
+              "title": "",
+              "labelAngle": 45
+            }
+          },
+          "y": {
+            "field": "Proportion",
+            "type": "quantitative",
+            "axis": {
+              "title": "Proportion of Total Mass"
+            }
+          },
+          "color": {
+            "field": "OrbitClass",
+            "type": "nominal",
+            "scale": {
+              "range": ["#c6dbef", "#6baed6", "#2171b5", "#08306b"]
+            },
+            "sort": ["LEO", "MEO", "GEO", "Elliptical"],
+            "legend": {
+              "title": "Orbit Class",
+              "orient": "bottom"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "LaunchYear",
+              "type": "ordinal",
+              "title": "Year Launched"
+            },
+            {
+              "field": "OrbitClass",
+              "type": "nominal",
+              "title": "Orbit Class"
+            },
+            {
+              "field": "Proportion",
+              "type": "quantitative",
+              "title": "Proportion",
+              "format": ".2%"
+            },
+            {
+              "field": "TotalMass",
+              "type": "quantitative",
+              "title": "Total Mass (kg)",
+              "format": ","
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

@@ -6,7 +6,7 @@
     "background": "#010c12",
     "config": {
       "text": {"fill": "white"},  
-      "title": {"color": "white", "font": "monospace"}, 
+      "title": {"color": "white", "font": "monospace", "fontSize": 16}, 
       "legend": {"labelColor": "white", "titleColor": "white", "labelFont": "monospace", "titleFont": "monospace"} 
     },
     "projection": {"type": "equalEarth"},

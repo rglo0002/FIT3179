@@ -42,7 +42,11 @@
       "y": {
         "field": "TotalMass",
         "type": "quantitative",
-        "title": "Total Mass (kg)"
+        "title": "Total Mass (kg)",
+        "scale": {"type": "log"},
+        "axis": {
+          "grid": false
+        }
       }
     },
     "config": {
