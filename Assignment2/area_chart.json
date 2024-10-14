@@ -23,6 +23,7 @@
   "hconcat": [
     {
       "width": 200,
+      "height": 260,
       "data": {
         "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
       },
@@ -47,7 +48,10 @@
         "x": {
           "field": "LaunchYear",
           "type": "ordinal",
-          "title": "Year of Launch"
+          "title": "Year of Launch",
+          "axis": {
+            "labelAngle": 45
+          }
         },
         "y": {
           "field": "SatCount",
@@ -74,6 +78,7 @@
     },
     {
       "width": 200,
+      "height": 260,
       "data": {
         "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
       },
@@ -98,7 +103,10 @@
         "x": {
           "field": "LaunchYear",
           "type": "ordinal",
-          "title": "Year of Launch"
+          "title": "Year of Launch",
+          "axis": {
+            "labelAngle": 45
+          }
         },
         "y": {
           "field": "SatCount",
