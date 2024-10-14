@@ -1,18 +1,19 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-      "text": "Mulitple Country/Organisation Satellites",
+      "text": "Satellites Launched by Multiple Countries/Organisations",
       "font": "monospace",
-      "fontSize": 16,
+      "fontSize": 14,
       "color": "white"
     },
-    "width": 430,
+    "width": 410,
     "data": {
       "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/unmatched_countries_organisations.csv"
     },
     "background": "#010c12",
     "config": {
       "text": {"fill": "white"},
+      "font": "monospace",
       "axis": {
         "labelColor": "white",
         "titleColor": "white"

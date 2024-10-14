@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",  
-  "title": "Total Satellites by Country",
     "width": "container",    
     "height": "container",
     "background": "#010c12",

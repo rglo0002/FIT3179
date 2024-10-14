@@ -29,34 +29,37 @@
 
     <div class="header">
       <h1>Satellites of Earth</h1>
-      <h3>Exploring the Operational Satellites in Earth Orbit (as of May 2023)</h3>
+      <h2>Exploring the Operational Satellites in Earth Orbit (as of May 2023)</h3>
     </div>
 
     <!-- First Row with 3 columns, middle one for the graphs -->
+    <div>
+      <h3>Satellites Over Time</h3>
+    </div> 
     <div class="row row-1">
+
       <div class="column column-left">
         <p class="text-body">
           The first artificial satellite, Sputnik 1, was launched by the Soviet Union in 1957, marking the beginning of the space age. 
-          Since then, a significant amount of satellites have been sent to space, with 7,560 operational satellites currently in orbit. 
+          Since then, a significant amount of satellites have been sent to space, with <b>7,560</b> operational satellites currently in orbit. 
           Many more than that number have been launched, but are no longer operational.
         </p>
         <p class="text-body">
-          These satellites play crucial roles in communication, weather monitoring, navigation, and scientific research. The data 
-          represented in this visualization focuses on the currently operational satellites, providing insights into their  
-          functionality in our modern world.
+          Satellites are launched for a variety of purposes, including communication, Earth observation, and scientific research. There are 4 major categories of earth orbits, 
+          ranked in order of how far away they are: Low Earth Orbit (LEO), Medium Earth Orbit (MEO), Geostationary Orbit (GEO), and Elliptical.
         </p>
       </div>
 
       <div class="column column-middle">
         <div class="graph-stack-1">
-          <div id="concat-graph" class="vis-container"></div>
+          <div id="sats-over-time" class="vis-container"></div>
         </div>
       </div>
 
       <div class="column column-right">
         <p class="text-body">
-          Satellites usually have a lifespan of 5 to 15 years, depending on the type of satellite and its mission. However,
-          the oldest satellite still in operation is the amateur AMSAT-Oscar A07, which launched in 1974. It was suspected that it died 
+          Satellites usually have a lifespan of <b>5 to 15 years</b>, depending on the type of satellite and its mission. However,
+          the oldest satellite still in operation is the amateur <b>AMSAT-Oscar A07</b>, which launched in 1974. It was suspected that it died 
           in 1981 but miraculously came back to life in 2002. It is still operational today [1].
         </p>
         <p class="text-body">
@@ -66,6 +69,9 @@
       </div>
     </div>
 
+    <div>
+      <h3>Satellite Distribution by Country</h3>
+    </div>
     <!-- Second Row for the map -->
     <div class="row row-2">
       <div id="map" class="vis-container"></div>
@@ -79,12 +85,12 @@
           The majority of these satellites are in Low Earth Orbit (LEO), and in fact <b>3,995 (82.4%)</b> of them are Starlink satellites.
         </p>
         <p class="text-body">
-        SpaceX has been able to rapidly increase the number of satellites launched over the last few years due to their reusable rocket technology.
+          SpaceX has been able to rapidly increase the number of satellites launched over the last few years due to their reusable rocket technology.
         </p>
       </div>
 
       <div class="column column-middle">
-        <div id="graph-2" class="vis-container"></div>
+        <div id="non-countries" class="vis-container"></div>
       </div>
 
       <div class="column column-right">
@@ -100,26 +106,63 @@
     </div>
 
     <!-- New 4th Row with 3 columns -->
+    <div>
+      <h3>Investors in Satellite Technology & Their Uses</h3>
+    </div>
+
     <div class="row row-4">
       <div class="column column-left">
         <p class="text-body">
-
+          The 4 major categories of those who invest in satellite technology are the government, commercial, civil, and military sectors. 
         </p>
         <p class="text-body">
-
+          Satellites in Earth orbit serve a wide range of applications depending on their altitude, ranging from Low Earth Orbit (LEO) to 
+          Geostationary Earth Orbit (GEO). In LEO, satellites typically orbit between 160 to 2,000 kilometers above the Earth’s surface and 
+          are used for Earth observation, remote sensing, scientific research, and communication constellations like Starlink. 
+          Their proximity allows high-resolution imaging and low-latency communications. 
         </p>
       </div>
 
       <div class="column column-middle">
-        <div id="treemap" class="vis-container"></div>
+        <div id="heatmap" class="vis-container"></div>
       </div>
 
       <div class="column column-right">
         <p class="text-body">
+          In Medium Earth Orbit (MEO), satellites at altitudes 
+          of 2,000 to 35,786 kilometers are often used for global navigation systems, such as GPS, providing positioning and timing services.
+          In GEO, satellites orbit at about 35,786 kilometers and appear stationary relative to Earth, making them ideal for telecommunications,
+          weather monitoring, and broadcast services, as they can cover large areas continuously. These orbits offer unique advantages depending 
+          on the mission, such as persistent coverage in GEO or detailed imaging in LEO.
+        </p>
+      </div>
+    </div>
 
+    <!-- New 5th Row with 3 columns -->
+    <div>
+      <h3>Satellites by Launch Vehicle</h3>
+    </div>
+
+    <div class="row row-4">
+      <div class="column column-left">
+        <p class="text-body">
+          <strong>Falcon 9</strong> is a groundbreaking rocket known for its reusability, allowing its first stage to land and be reused for multiple missions. This innovation has drastically reduced launch costs, making it a leading option for satellite deployment. Meanwhile, India's <strong>PSLV</strong> (Polar Satellite Launch Vehicle) is prized for its versatility, frequently launching multiple satellites into different orbits in one mission, particularly to polar orbits. 
         </p>
         <p class="text-body">
-   
+          
+        </p>
+      </div>
+
+      <div class="column column-middle">
+        <div id="area-chart" class="vis-container"></div>
+      </div>
+
+      <div class="column column-right">
+        <p class="text-body">
+          China’s <strong>Long March</strong> family of rockets, including the Long March 2C and 3B, plays a major role in deploying satellites across various orbits, from LEO to geostationary orbit (GEO). Finally, the <strong>Electron</strong> rocket from Rocket Lab focuses on delivering lightweight payloads to LEO, providing frequent and flexible launches for smaller satellites, making it a top choice for miniaturized payloads.
+        </p>
+        <p class="text-body">
+          
         </p>
       </div>
     </div>
@@ -127,7 +170,7 @@
     <div class="row row-bottom">
       <p class="text-bottom">Visualisation by Ronan Glover (SN: 30580900) for Monash FIT3179 Data Visualisation 2. 
         Data URL: <a href="https://www.ucsusa.org/resources/satellite-database">UCS Satellite Database</a>
-        References: [1] <a href="https://en.wikipedia.org/wiki/AMSAT-OSCAR_7">Wikipedia.com</a>
+        References: [1] <a href="https://en.wikipedia.org/wiki/AMSAT-OSCAR_7">Wikipedia.com/AMSAT-Oscar-7</a>
       </p>
     </div>
 
@@ -135,14 +178,16 @@
 
   <script type="text/javascript">
     var specVis1 = "./total_sats_map.json";
-    var specVis2 = "./first_graph_concat.json";
-    var specVis3 = "./graph_2.json";
-    var specVis4 = "./treemap.json";
+    var specVis2 = "./sats_over_time.json";
+    var specVis3 = "./non_countries.json";
+    var specVis4 = "./heatmap.json";
+    var specVis5 = "./area_chart.json";
 
     vegaEmbed('#map', specVis1, { "actions": false });
-    vegaEmbed('#concat-graph', specVis2, { "actions": false }).catch(console.error);
-    vegaEmbed('#graph-2', specVis3, { "actions": false }).catch(console.error);
-    vegaEmbed('#treemap', specVis4, { "actions": false }).catch(console.error);
+    vegaEmbed('#sats-over-time', specVis2, { "actions": false }).catch(console.error);
+    vegaEmbed('#non-countries', specVis3, { "actions": false }).catch(console.error);
+    vegaEmbed('#heatmap', specVis4, { "actions": false }).catch(console.error);
+    vegaEmbed('#area-chart', specVis5, { "actions": false }).catch(console.error);
   </script>
 
 </body>

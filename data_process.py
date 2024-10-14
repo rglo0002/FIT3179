@@ -37,21 +37,30 @@ matched_data = sat_data.dropna(subset=['Longitude', 'Latitude'])
 
 print("Matched data saved as 'merged_sat_data.csv' and unmatched countries/organisations saved as 'unmatched_countries_organisations.csv'.")
 """
-# Load the CSV file
-df = pd.read_csv('clean_sat_data.csv')
+# # Load the CSV file
+data = pd.read_csv('clean_sat_data.csv')
 
-# Define a function to group purposes containing 'Earth Observation'
-def group_purpose(purpose):
-    if 'earth observation' in purpose.lower():
-        return 'Earth Observation'
-    else:
-        return purpose
+# # Define a function to group purposes containing 'Earth Observation'
+# def group_purpose(purpose):
+#     if 'earth observation' in purpose.lower():
+#         return 'Earth Observation'
+#     else:
+#         return purpose
 
-# Apply the grouping function to the Purpose column
-df['Grouped_Purpose'] = df['Purpose'].apply(group_purpose)
+# # Apply the grouping function to the Purpose column
+# df['Grouped_Purpose'] = df['Purpose'].apply(group_purpose)
 
-# Save the transformed data to a new CSV file
-df.to_csv('clean_sat_data.csv', index=False)
+# # Save the transformed data to a new CSV file
+# df.to_csv('clean_sat_data.csv', index=False)
 
-# Optional: Display the first few rows to check the changes
-print(df.head())
+# # Optional: Display the first few rows to check the changes
+# print(df.head())
+
+# Group the data by 'LaunchVehicle' and count the number of satellites
+launch_vehicle_counts = data.groupby('LaunchVehicle').size().reset_index(name='Count')
+
+# Sort by the count of satellites in descending order
+top_10_launch_vehicles = launch_vehicle_counts.sort_values(by='Count', ascending=False).head(10)
+
+# Display the top 10 launch vehicles
+print(top_10_launch_vehicles)

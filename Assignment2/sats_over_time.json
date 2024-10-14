@@ -30,12 +30,6 @@
         "titleColor": "white"
       }
     },
-    "title": {
-        "text": "Satellite Launch Data Over Time",
-        "anchor": "middle",
-        "fontSize": 16,
-        "color": "white"
-    },
     "vconcat": [
       {
         "width": 450,

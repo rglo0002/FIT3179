@@ -1,0 +1,130 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "background": "#010c12",
+    "title": {
+      "color": "white",
+      "font": "monospace",
+      "fontSize": 20
+    },
+    "axis": {
+      "labelColor": "white",
+      "titleColor": "white",
+      "labelFont": "monospace",
+      "titleFont": "monospace"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white",
+      "labelFont": "monospace",
+      "titleFont": "monospace"
+    }
+  },
+  "hconcat": [
+    {
+      "width": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.LaunchVehicle == 'Falcon 9' || datum.LaunchVehicle == 'Soyuz-2.1b' || datum.LaunchVehicle == 'PSLV' || datum.LaunchVehicle == 'Long March 2D' || datum.LaunchVehicle == 'Electron'"
+        },
+        {
+          "calculate": "year(datum.LaunchDate)",
+          "as": "LaunchYear"
+        },
+        {
+          "filter": "datum.LaunchYear < 2020"
+        },
+        {
+          "aggregate": [{"op": "count", "as": "SatCount"}],
+          "groupby": ["LaunchYear", "LaunchVehicle"]
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "LaunchYear",
+          "type": "ordinal",
+          "title": "Year of Launch"
+        },
+        "y": {
+          "field": "SatCount",
+          "type": "quantitative",
+          "title": "Satellites Launched"
+        },
+        "color": {
+          "field": "LaunchVehicle",
+          "type": "nominal",
+          "title": "Launch Vehicle",
+          "scale": {
+            "range": ["#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0"]
+          },
+          "legend": {
+            "orient": "bottom"  
+          }
+        },
+        "tooltip": [
+          {"field": "LaunchVehicle", "type": "nominal", "title": "Launch Vehicle"},
+          {"field": "SatCount", "type": "quantitative", "title": "Satellites Launched", "format": ".0f"},
+          {"field": "LaunchYear", "type": "ordinal", "title": "Launch Year"}
+        ]
+      }
+    },
+    {
+      "width": 200,
+      "data": {
+        "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.LaunchVehicle == 'Falcon 9' || datum.LaunchVehicle == 'Soyuz-2.1b' || datum.LaunchVehicle == 'PSLV' || datum.LaunchVehicle == 'Long March 2D' || datum.LaunchVehicle == 'Electron' "
+        },
+        {
+          "calculate": "year(datum.LaunchDate)",
+          "as": "LaunchYear"
+        },
+        {
+          "filter": "datum.LaunchYear >= 2020"
+        },
+        {
+          "aggregate": [{"op": "count", "as": "SatCount"}],
+          "groupby": ["LaunchYear", "LaunchVehicle"]
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "LaunchYear",
+          "type": "ordinal",
+          "title": "Year of Launch"
+        },
+        "y": {
+          "field": "SatCount",
+          "type": "quantitative",
+          "title": ""
+        },
+        "color": {
+          "field": "LaunchVehicle",
+          "type": "nominal",
+          "title": "Launch Vehicle",
+          "scale": {
+            "range": ["#7fc97f", "#beaed4", "#fdc086", "#ffff99", "#386cb0"]
+          },
+          "legend": {
+            "title": "(Top 5)",
+            "orient": "bottom",
+            "columns": 5 
+          }
+        },
+        "tooltip": [
+          {"field": "LaunchVehicle", "type": "nominal", "title": "Launch Vehicle"},
+          {"field": "SatCount", "type": "quantitative", "title": "Satellites Launched", "format": ","},
+          {"field": "LaunchYear", "type": "ordinal", "title": "Launch Year"}
+        ]
+      }
+    }
+  ],
+  "spacing": 5
+}
