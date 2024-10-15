@@ -178,10 +178,6 @@
     {
       "width": 450,
       "height": 150,
-      "layer": [
-        {
-          "layer": [
-            {
               "transform": [
                 {
                   "calculate": "year(datum.LaunchDate)",
@@ -274,42 +270,6 @@
                   }
                 ]
               }
-            },
-            {
-              "transform":[
-                {
-                  "calculate": "year(datum.LaunchDate)",
-                  "as": "LaunchYear"
-                },
-                {"filter": "datum.LaunchYear == 2020 && datum.OrbitClass == 'LEO'"}
-              ],
-              "mark": {
-                "type": "text",
-                "align": "right",
-                "baseline": "middle",
-                "font": "monospace",
-                "fontWeight": "bold",
-                "color": "darkblue",
-                "dx": 0,
-                "fontSize": 13.5
-              },
-              "encoding": {
-                "x": {
-                  "datum": 2020, 
-                  "type": "ordinal"
-                },
-                "y": {
-                  "datum": 0.6,  
-                  "type": "quantitative"
-                },
-                "text": {
-                  "value": "Starlink launches begin ->"
-                }
-              }
             }
-          ]
-        }
-      ]
-    }
   ]
 }
