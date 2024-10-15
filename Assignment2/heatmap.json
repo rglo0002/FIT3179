@@ -1,69 +1,96 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 290,
-    "background": "#010c12",
-    "data": {
-      "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
-    },
-    "transform": [
-      {
-        "filter": {
-          "field": "Category",
-          "oneOf": ["Commercial", "Military", "Government", "Civil"]
-        }
-      }
-    ],
-    "config": {
-      "text": {"fill": "white"},
-      "font": "monospace",
-      "axis": {
-        "labelColor": "white",
-        "titleColor": "white"
-      },
-      "legend": {
-        "labelColor": "white",
-        "titleColor": "white",
-        "labelFont": "monospace",
-        "titleFont": "monospace"
-      }
-    },
-    "mark": "rect",
-    "encoding": {
-      "x": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 290,
+  "background": "#010c12",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/clean_sat_data.csv"
+  },
+  "transform": [
+    {
+      "filter": {
         "field": "Category",
-        "type": "nominal",
-        "title": "Category",
-        "axis": {
-          "labelAngle": -45,
-          "labelColor": "white",
-          "titleColor": "white",
-          "labelFont": "monospace"
-        }
-      },
-      "y": {
-        "field": "Grouped_Purpose",
-        "type": "nominal",
-        "title": "Purpose",
-        "axis": {
-          "labelColor": "white",
-          "titleColor": "white",
-          "labelFont": "monospace"
-        }
-      },
-      "color": {
-        "aggregate": "count",
-        "type": "quantitative",
-        "title": "Satellites",
-        "scale": {
-          "type": "log",
-          "scheme": "blues"
-        }
-      },
-      "tooltip": [
-        {"field": "Category", "type": "nominal"},
-        {"field": "Purpose", "type": "nominal"},
-        {"aggregate": "count", "type": "quantitative", "title": "Count"}
-      ]
+        "oneOf": ["Commercial", "Military", "Government", "Civil"]
+      }
     }
-  }
-  
+  ],
+  "config": {
+    "text": {"fill": "white"},
+    "font": "monospace",
+    "axis": {
+      "labelColor": "white",
+      "titleColor": "white"
+    },
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white",
+      "labelFont": "monospace",
+      "titleFont": "monospace"
+    }
+  },
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "x": {
+          "field": "Category",
+          "type": "nominal",
+          "title": "Category",
+          "axis": {
+            "labelAngle": -45,
+            "labelColor": "white",
+            "titleColor": "white",
+            "labelFont": "monospace"
+          }
+        },
+        "y": {
+          "field": "Grouped_Purpose",
+          "type": "nominal",
+          "title": "Purpose",
+          "axis": {
+            "labelColor": "white",
+            "titleColor": "white",
+            "labelFont": "monospace"
+          }
+        },
+        "color": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Satellites",
+          "scale": {
+            "type": "log",
+            "scheme": "blues"
+          }
+        },
+        "tooltip": [
+          {"field": "Category", "type": "nominal"},
+          {"field": "Purpose", "type": "nominal"},
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+        ]
+      }
+    },
+    {
+      "transform": [{
+        "filter": "datum.Grouped_Purpose == 'Communications' && datum.Category == 'Civil'"
+      }],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "dy": -30
+      },
+      "encoding": {
+        "x": {
+          "datum": "Commercial"  
+        },
+        "y": {
+          "datum": "Communications" 
+        },
+        "text": {
+          "value": ["The majority of satellites are", "for communications purposes"]
+        },
+        "color": {
+          "value": "white"
+        }
+      }
+    }
+  ]
+}

@@ -1,58 +1,88 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-      "text": "Satellites Launched by Multiple Countries/Organisations",
-      "font": "monospace",
-      "fontSize": 14,
-      "color": "white"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Satellites Launched by Multiple Countries/Organisations",
+    "font": "monospace",
+    "fontSize": 14,
+    "color": "white"
+  },
+  "width": 410,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/unmatched_countries_organisations.csv"
+  },
+  "background": "#010c12",
+  "config": {
+    "text": {"fill": "white"},
+    "font": "monospace",
+    "axis": {
+      "labelColor": "white",
+      "titleColor": "white"
     },
-    "width": 410,
-    "data": {
-      "url": "https://raw.githubusercontent.com/rglo0002/FIT3179/main/unmatched_countries_organisations.csv"
-    },
-    "background": "#010c12",
-    "config": {
-      "text": {"fill": "white"},
-      "font": "monospace",
-      "axis": {
-        "labelColor": "white",
-        "titleColor": "white"
-      },
-      "legend": {
-        "labelColor": "white",
-        "titleColor": "white",
-        "labelFont": "monospace",
-        "titleFont": "monospace"
+    "legend": {
+      "labelColor": "white",
+      "titleColor": "white",
+      "labelFont": "monospace",
+      "titleFont": "monospace"
+    }
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Countries/Organisations",
+          "type": "nominal",
+          "axis": {
+            "labelAngle": -45
+          }
+        },
+        "y": {
+          "field": "Total_Satellites",
+          "type": "quantitative",
+          "title": "Total Satellites"
+        },
+        "color": {
+          "field": "Total_Mass",
+          "title": "Total Mass (kg)",
+          "type": "quantitative",
+          "scale": {
+            "type": "log",
+            "scheme": "viridis"
+          }
+        },
+        "tooltip": [
+          {"field": "Countries/Organisations", "type": "nominal"},
+          {"field": "Total_Satellites", "type": "quantitative", "format": ",", "title": "Total Satellites"},
+          {"field": "Total_Mass", "type": "quantitative", "format": ",", "title": "Total Mass (kg)"}
+        ]
       }
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "Countries/Organisations",
-        "type": "nominal",
-        "axis": {
-          "labelAngle": -45
+    {
+      "transform": [
+        {
+          "filter": "datum['Countries/Organisations'] == 'European Space Agency (ESA)'"
         }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 45,
+        "fontSize": 13
       },
-      "y": {
-        "field": "Total_Satellites",
-        "type": "quantitative",
-        "title": "Total Satellites"
-      },
-      "color": {
-        "field": "Total_Mass",
-        "title": "Total Mass (kg)",
-        "type": "quantitative",
-        "scale": {
-          "type": "log",
-            "scheme": "viridis"
+      "encoding": {
+        "x": {
+          "datum": "European Space Agency",
+          "type": "nominal"
+        },
+        "y": {
+          "datum": 37,  
+          "type": "quantitative"
+        },
+        "text": {
+          "value": ["ESA is the largest cooperative", "satellite launcher"]
         }
-      },
-      "tooltip": [
-        {"field": "Countries/Organisations", "type": "nominal"},
-        {"field": "Total_Satellites", "type": "quantitative", "format": ",", "title": "Total Satellites"},
-        {"field": "Total_Mass", "type": "quantitative", "format": ",", "title": "Total Mass (kg)"}
-      ]
+      }
     }
-  }
-  
+  ]
+}
